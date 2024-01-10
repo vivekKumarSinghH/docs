@@ -1,88 +1,71 @@
 ---
-title: 'Markdown Syntax'
-description: 'Text, title, and styling in standard markdown'
-icon: 'text-size'
+title: "Markdown Syntax"
+description: "Text, title, and styling in standard markdown"
+icon: "text-size"
 ---
 
-## Titles
+## Functions & this keyword in Javascript
 
-Best used for section headers.
+### Functions in JavaScript:
 
-```md
-## Titles
+Functions in JavaScript are like reusable blocks of code. They are like mini-programs that you can define once and then use multiple times. In JavaScript, functions are essential for organizing and executing code.
+
+### The this Keyword:
+this is a special keyword in JavaScript that refers to the current context or object. Its value is determined at the time a function is executed. The tricky part is that this might have different values depending on how a function is called.
+
+#### Ways to Invoke a Function:
+
+#### 1. As a normal function:
+
+You define a function and then call it just by its name.
+
+Example:
+```javascript index.js
+function example() {
+console.log("Hello World!")
+};
+example();
 ```
+#### 2. As a method:
 
-### Subtitles
+You can have functions as properties of objects, and then you call them using the object they belong to.
+Example:
+```javascript index.js
+// Object representing a car
+const car = {
+  brand: "Toyota",
+  model: "Camry",
+  year: 2022,
 
-Best use to subsection headers.
+  // Method to start the car's engine
+  startEngine: function () {
+    console.log(`Starting the ${this.brand} ${this.model}'s engine.`);
+  }
+};
 
-```md
-### Subtitles
+// Calling the method to start the engine
+car.startEngine();
+
 ```
+### 3. As a constructor:
 
-<Tip>
+Constructors are used to create new objects based on a blueprint. You use the new keyword to create an instance of an object.
+Example:
+```javascript index.js
+// Constructor function for creating Person objects
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+}
 
-Each **title** and **subtitle** creates an anchor and also shows up on the table of contents on the right.
+// Creating instances of Person using the constructor
+const person1 = new Person("Alice", 25);
+const person2 = new Person("Bob", 30);
 
-</Tip>
-
-## Text Formatting
-
-We support most markdown formatting. Simply add `**`, `_`, or `~` around text to format it.
-
-| Style         | How to write it   | Result          |
-| ------------- | ----------------- | --------------- |
-| Bold          | `**bold**`        | **bold**        |
-| Italic        | `_italic_`        | _italic_        |
-| Strikethrough | `~strikethrough~` | ~strikethrough~ |
-
-You can combine these. For example, write `**_bold and italic_**` to get **_bold and italic_** text.
-
-You need to use HTML to write superscript and subscript text. That is, add `<sup>` or `<sub>` around your text.
-
-| Text Size   | How to write it          | Result                 |
-| ----------- | ------------------------ | ---------------------- |
-| Superscript | `<sup>superscript</sup>` | <sup>superscript</sup> |
-| Subscript   | `<sub>subscript</sub>`   | <sub>subscript</sub>   |
-
-## Linking to Pages
-
-You can add a link by wrapping text in `[]()`. You would write `[link to google](https://google.com)` to [link to google](https://google.com).
-
-Links to pages in your docs need to be root-relative. Basically, you should include the entire folder path. For example, `[link to text](/writing-content/text)` links to the page "Text" in our components section.
-
-Relative links like `[link to text](../text)` will open slower because we cannot optimize them as easily.
-
-## Blockquotes
-
-### Singleline
-
-To create a blockquote, add a `>` in front of a paragraph.
-
-> Dorothy followed her through many of the beautiful rooms in her castle.
-
-```md
-> Dorothy followed her through many of the beautiful rooms in her castle.
+// Accessing the properties of the created objects
+console.log(person1.name); // Output: "Alice"
+console.log(person2.age);  //  Output: 30
 ```
+In simple terms, these are just different ways to use functions in JavaScript. Sometimes you use them like regular actions, sometimes as part of an object, and sometimes to create new things. Understanding when to use each way is important for writing effective and organized code in JavaScript.
 
-### Multiline
 
-> Dorothy followed her through many of the beautiful rooms in her castle.
->
-> The Witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with wood.
-
-```md
-> Dorothy followed her through many of the beautiful rooms in her castle.
->
-> The Witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with wood.
-```
-
-### LaTeX
-
-Mintlify supports [LaTeX](https://www.latex-project.org) through the Latex component.
-
-<Latex>8 x (vk x H1 - H2) = (0,1)</Latex>
-
-```md
-<Latex>8 x (vk x H1 - H2) = (0,1)</Latex>
-```
